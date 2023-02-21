@@ -5,6 +5,10 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.API", "TAL.PremiumCalculator.API\TAL.PremiumCalculator.API.csproj", "{79277010-CDD8-4D08-9510-8196CAF06C73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Data", "TAL.PremiumCalculator.Data\TAL.PremiumCalculator.Data.csproj", "{637C7357-3B9A-4338-AB1A-CEA2083C4AB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Data.Abstractions", "TAL.PremiumCalculator.Data.Abstractions\TAL.PremiumCalculator.Data.Abstractions.csproj", "{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{79277010-CDD8-4D08-9510-8196CAF06C73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79277010-CDD8-4D08-9510-8196CAF06C73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79277010-CDD8-4D08-9510-8196CAF06C73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{637C7357-3B9A-4338-AB1A-CEA2083C4AB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{637C7357-3B9A-4338-AB1A-CEA2083C4AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{637C7357-3B9A-4338-AB1A-CEA2083C4AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{637C7357-3B9A-4338-AB1A-CEA2083C4AB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
