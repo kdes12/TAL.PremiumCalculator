@@ -37,4 +37,21 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 
+if (app.Environment.IsDevelopment())
+{
+    // allow all hosts for dev
+    app.UseCors(policy => policy
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .SetIsOriginAllowed(origin => true));
+}
+else
+{
+    // restrict hosts in prod
+    app.UseCors(policy => policy
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .WithOrigins((builder.Configuration.GetValue<string>("AllowedHosts")?.ToString() ?? string.Empty).Split(";")));
+}
+
 app.Run();
