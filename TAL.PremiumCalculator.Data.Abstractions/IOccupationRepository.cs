@@ -9,6 +9,7 @@ namespace TAL.PremiumCalculator.Data.Abstractions
 {
     public interface IOccupationRepository
     {
+        Task<Occupation?> GetOccupationAsync(Guid occupationId);
         Task<List<Occupation>> GetOccupationsAsync();
     }
 }

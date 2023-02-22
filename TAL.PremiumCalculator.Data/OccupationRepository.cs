@@ -18,6 +18,13 @@ namespace TAL.PremiumCalculator.Data
             _context = context;
         }
 
+        public async Task<Occupation?> GetOccupationAsync(Guid occupationId)
+        {
+            return await _context.Occupations
+                .Include(o => o.OccupationRating)
+                .FirstOrDefaultAsync(o => o.Id == occupationId);
+        }
+
         public async Task<List<Occupation>> GetOccupationsAsync()
         {
             return await _context.Occupations

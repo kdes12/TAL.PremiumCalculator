@@ -17,6 +17,7 @@ builder.Services.AddSingleton<IMapper<Occupation, OccupationResponse>, Occupatio
 
 builder.Services.AddScoped<IOccupationRepository, OccupationRepository>();
 builder.Services.AddScoped<IOccupationManager, OccupationManager>();
+builder.Services.AddScoped<IPremiumManager, PremiumManager>();
 
 // add swagger
 builder.Services.AddEndpointsApiExplorer();
