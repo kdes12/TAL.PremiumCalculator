@@ -12,7 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // add db context
-builder.Services.AddDbContext<IPremiumCalculatorContext, PremiumCalculatorContext>(options => options.UseSqlServer("PremiumCalculatorConnectionString"));
+builder.Services.AddDbContext<IPremiumCalculatorContext, PremiumCalculatorContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("PremiumCalculatorConnection")));
 
 var app = builder.Build();
 
