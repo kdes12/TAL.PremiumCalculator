@@ -14,7 +14,8 @@ namespace TAL.PremiumCalculator.Data
         public DbSet<Occupation> Occupations { get; set;}
         public DbSet<OccupationRating> OccupationRatings { get; set;}
 
-        public PremiumCalculatorContext()
+        public PremiumCalculatorContext(DbContextOptions<PremiumCalculatorContext> dbContextOptions)
+            : base (dbContextOptions)
         {
         }
     }
