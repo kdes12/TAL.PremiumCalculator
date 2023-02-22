@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Data"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Data.Abstractions", "TAL.PremiumCalculator.Data.Abstractions\TAL.PremiumCalculator.Data.Abstractions.csproj", "{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Data.Models", "TAL.PremiumCalculator.Data.Models\TAL.PremiumCalculator.Data.Models.csproj", "{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
