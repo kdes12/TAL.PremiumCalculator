@@ -10,7 +10,7 @@ namespace TAL.PremiumCalculator.Business.Objects
     {
         public Guid OccupationId { get; set; }
         public decimal SumInsured { get; set; }
-        public uint Age { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
     }
 }

@@ -27,7 +27,7 @@ namespace TAL.PremiumCalculator.API.Controllers
         {
             try
             {
-                PremiumResponse premium = await _premiumManager.GetPremiumAsync(query.OccupationId, query.SumInsured, query.Age);
+                PremiumResponse premium = await _premiumManager.GetPremiumAsync(query.OccupationId, query.SumInsured, query.DateOfBirth);
                 return Ok(premium);
             }
             catch (Exception ex)
