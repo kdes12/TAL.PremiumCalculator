@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TAL.PremiumCalculator.Business.Abstractions\TAL.PremiumCalculator.Business.Abstractions.csproj" />
+    <ProjectReference Include="..\TAL.PremiumCalculator.Business.Mappers\TAL.PremiumCalculator.Business.Mappers.csproj" />
+    <ProjectReference Include="..\TAL.PremiumCalculator.Business.Objects\TAL.PremiumCalculator.Business.Objects.csproj" />
+    <ProjectReference Include="..\TAL.PremiumCalculator.Business\TAL.PremiumCalculator.Business.csproj" />
     <ProjectReference Include="..\TAL.PremiumCalculator.Data\TAL.PremiumCalculator.Data.csproj" />
   </ItemGroup>
 

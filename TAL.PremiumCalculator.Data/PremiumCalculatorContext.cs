@@ -9,7 +9,7 @@ using TAL.PremiumCalculator.Data.Models;
 
 namespace TAL.PremiumCalculator.Data
 {
-    public class PremiumCalculatorContext : DbContext, IPremiumCalculatorContext
+    public class PremiumCalculatorContext : DbContext
     {
         public DbSet<Occupation> Occupations { get; set;}
         public DbSet<OccupationRating> OccupationRatings { get; set;}

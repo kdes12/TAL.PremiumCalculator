@@ -11,6 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Data.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Data.Models", "TAL.PremiumCalculator.Data.Models\TAL.PremiumCalculator.Data.Models.csproj", "{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Business", "TAL.PremiumCalculator.Business\TAL.PremiumCalculator.Business.csproj", "{E1C74DB0-D45E-4A3A-8439-B95BCBC2E2EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Business.Abstractions", "TAL.PremiumCalculator.Business.Abstractions\TAL.PremiumCalculator.Business.Abstractions.csproj", "{3BD5A182-1A30-4221-BA5D-61AC34E12501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Business.Objects", "TAL.PremiumCalculator.Business.Objects\TAL.PremiumCalculator.Business.Objects.csproj", "{DAA37C76-EBE1-4F79-8438-3A016502F2CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Business.Mappers", "TAL.PremiumCalculator.Business.Mappers\TAL.PremiumCalculator.Business.Mappers.csproj", "{294FA830-49FB-4B7E-9298-90700F4177D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +41,22 @@ Global
 		{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1C74DB0-D45E-4A3A-8439-B95BCBC2E2EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C74DB0-D45E-4A3A-8439-B95BCBC2E2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C74DB0-D45E-4A3A-8439-B95BCBC2E2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C74DB0-D45E-4A3A-8439-B95BCBC2E2EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD5A182-1A30-4221-BA5D-61AC34E12501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD5A182-1A30-4221-BA5D-61AC34E12501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD5A182-1A30-4221-BA5D-61AC34E12501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD5A182-1A30-4221-BA5D-61AC34E12501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAA37C76-EBE1-4F79-8438-3A016502F2CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA37C76-EBE1-4F79-8438-3A016502F2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA37C76-EBE1-4F79-8438-3A016502F2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA37C76-EBE1-4F79-8438-3A016502F2CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294FA830-49FB-4B7E-9298-90700F4177D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{294FA830-49FB-4B7E-9298-90700F4177D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{294FA830-49FB-4B7E-9298-90700F4177D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{294FA830-49FB-4B7E-9298-90700F4177D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

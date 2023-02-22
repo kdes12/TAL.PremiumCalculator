@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TAL.PremiumCalculator.Business.Abstractions\TAL.PremiumCalculator.Business.Abstractions.csproj" />
+    <ProjectReference Include="..\TAL.PremiumCalculator.Business.Objects\TAL.PremiumCalculator.Business.Objects.csproj" />
+    <ProjectReference Include="..\TAL.PremiumCalculator.Data.Abstractions\TAL.PremiumCalculator.Data.Abstractions.csproj" />
+    <ProjectReference Include="..\TAL.PremiumCalculator.Data.Models\TAL.PremiumCalculator.Data.Models.csproj" />
+  </ItemGroup>
+
+</Project>
