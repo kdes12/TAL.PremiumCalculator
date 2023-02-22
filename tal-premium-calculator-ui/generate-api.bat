@@ -1,0 +1,1 @@
+openapi-generator-cli generate -g typescript-angular -i src/api/swagger.json -o src/api
