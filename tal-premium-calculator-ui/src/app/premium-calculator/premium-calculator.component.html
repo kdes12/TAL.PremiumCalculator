@@ -7,23 +7,25 @@
         <br/>
         <div class="lead">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" >
+          <input type="text" class="form-control" id="name" [(ngModel)]="name" >
         </div>
         <br/>
         <div class="lead">
           <label for="dateOfBirth" class="form-label">Date of Birth</label>
-          <input type="date" class="form-control" id="dateOfBirth" >
+          <input type="date" class="form-control" id="dateOfBirth" 
+            [ngModel]="dateOfBirth| date:'yyyy-MM-dd'"  
+            (ngModelChange)="dateOfBirth= $event"   >
         </div>
         <br/>
         <div class="lead">
           <label for="sumInsured" class="form-label">Sum Insured</label>
-          <input type="number" class="form-control" id="sumInsured" >
+          <input type="number" class="form-control" id="sumInsured" [(ngModel)]="sumInsured">
         </div>
         <br/>
         <div class="lead">
           <label for="occupation" class="form-label">Occupation</label>
-          <select class="form-select" id="occupation" >
-            <option>test</option>
+          <select class="form-select" id="occupation" (change)="onOccupationChange($event)">
+            <option *ngFor="let occupation of occupations$ | async as list" value={{occupation.id}}>{{occupation.name}}</option>
           </select>
         </div>
         <br/>
