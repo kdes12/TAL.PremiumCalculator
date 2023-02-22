@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/2769d4fd-e3a9-4ff5-9ae0-7b1a8e2b7659/AppServices/subscriptions/2769d4fd-e3a9-4ff5-9ae0-7b1a8e2b7659/resourceGroups/premium-calculator_group/providers/Microsoft.Web/sites/premium-calculator",
+    "appService.deploySubpath": "dist\\tal-premium-calculator-ui"
+}
