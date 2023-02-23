@@ -1,7 +1,7 @@
 # Premium Calculator
 
-Working demo at: https://premium-calculator.azurewebsites.net/
-API swagger docs at: https://premium-calculator-api.azurewebsites.net/swagger/
+- Working demo at: https://premium-calculator.azurewebsites.net/
+- API swagger docs at: https://premium-calculator-api.azurewebsites.net/swagger/
 
 Some assumptions made;
 
