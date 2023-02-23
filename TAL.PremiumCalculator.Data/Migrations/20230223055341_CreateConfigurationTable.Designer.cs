@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TAL.PremiumCalculator.Data;
 
@@ -11,9 +12,11 @@ using TAL.PremiumCalculator.Data;
 namespace TAL.PremiumCalculator.Data.Migrations
 {
     [DbContext(typeof(PremiumCalculatorContext))]
-    partial class PremiumCalculatorContextModelSnapshot : ModelSnapshot
+    [Migration("20230223055341_CreateConfigurationTable")]
+    partial class CreateConfigurationTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -29,15 +29,31 @@ export class PremiumCalculatorComponent {
     occupationIdValid = true;
     // false by default, to invalid premium is not shown
     premiumValid = false;
+    
+    maximumAgeLoaded = false;
+    occupationsLoaded = false;
 
+    // get maximum age
+    maximumAge = 0;
+    _ = this.premiumService.apiPremiumGetMaximumAgeGet().subscribe(
+    {
+      next: (maximumAge) => {
+        // set occupations
+        this.maximumAge = maximumAge;
+        this.maximumAgeLoaded = true;
+      }
+    });
+
+    // get occupations
     occupations = [] as OccupationResponse[];
-    _ = this.occupationService.apiOccupationGetOccupationsGet().subscribe(
+    __ = this.occupationService.apiOccupationGetOccupationsGet().subscribe(
       {
         next: (occupationsResponse) => {
           // set occupations
           this.occupations = occupationsResponse;
           // set current occupation id to first item in list
           this.occupationId = occupationsResponse[0].id ?? ""
+          this.occupationsLoaded = true;
         }
       }
     );
@@ -55,7 +71,7 @@ export class PremiumCalculatorComponent {
       {
         console.log("valid");
         // call premium service
-        this.premiumService.apiPremiumGetPremiumGet(this.occupationId, this.sumInsured, this.dateOfBirth.toString()).subscribe(
+        this.premiumService.apiPremiumCalculatePremiumGet(this.occupationId, this.sumInsured, this.dateOfBirth.toString()).subscribe(
           {
               next: (premiumResponse) => {
                 // set death premium/tpd monthly premium
@@ -90,8 +106,8 @@ export class PremiumCalculatorComponent {
         this.nameValid = false;
       }
 
-      // date of birth must be set, and calculated age must be greater than or equal to 70
-      if (this.dateOfBirth != null && this.calculateAge(this.dateOfBirth) <= 70)
+      // date of birth must be set, and calculated age must be greater than or equal to max age
+      if (this.dateOfBirth != null && this.calculateAge(this.dateOfBirth) <= this.maximumAge)
       {
         this.dateOfBirthValid = true;
       }

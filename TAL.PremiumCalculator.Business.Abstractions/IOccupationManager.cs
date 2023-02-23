@@ -3,7 +3,7 @@
 namespace TAL.PremiumCalculator.Business.Abstractions
 {
     /// <summary>
-    /// Get Occupations via repository
+    /// Occupation manager interface
     /// </summary>
     /// <returns>List of Occupations (business objects)</returns>
     public interface IOccupationManager

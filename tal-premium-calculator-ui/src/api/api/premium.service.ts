@@ -100,10 +100,19 @@ export class PremiumService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiPremiumGetPremiumGet(occupationId?: string, sumInsured?: number, dateOfBirth?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<PremiumResponse>;
-    public apiPremiumGetPremiumGet(occupationId?: string, sumInsured?: number, dateOfBirth?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<PremiumResponse>>;
-    public apiPremiumGetPremiumGet(occupationId?: string, sumInsured?: number, dateOfBirth?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<PremiumResponse>>;
-    public apiPremiumGetPremiumGet(occupationId?: string, sumInsured?: number, dateOfBirth?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public apiPremiumCalculatePremiumGet(occupationId: string, sumInsured: number, dateOfBirth: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<PremiumResponse>;
+    public apiPremiumCalculatePremiumGet(occupationId: string, sumInsured: number, dateOfBirth: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<PremiumResponse>>;
+    public apiPremiumCalculatePremiumGet(occupationId: string, sumInsured: number, dateOfBirth: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<PremiumResponse>>;
+    public apiPremiumCalculatePremiumGet(occupationId: string, sumInsured: number, dateOfBirth: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (occupationId === null || occupationId === undefined) {
+            throw new Error('Required parameter occupationId was null or undefined when calling apiPremiumCalculatePremiumGet.');
+        }
+        if (sumInsured === null || sumInsured === undefined) {
+            throw new Error('Required parameter sumInsured was null or undefined when calling apiPremiumCalculatePremiumGet.');
+        }
+        if (dateOfBirth === null || dateOfBirth === undefined) {
+            throw new Error('Required parameter dateOfBirth was null or undefined when calling apiPremiumCalculatePremiumGet.');
+        }
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (occupationId !== undefined && occupationId !== null) {
@@ -150,11 +159,64 @@ export class PremiumService {
             }
         }
 
-        let localVarPath = `/api/Premium/GetPremium`;
+        let localVarPath = `/api/Premium/CalculatePremium`;
         return this.httpClient.request<PremiumResponse>('get', `${this.configuration.basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 params: localVarQueryParameters,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiPremiumGetMaximumAgeGet(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<number>;
+    public apiPremiumGetMaximumAgeGet(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<number>>;
+    public apiPremiumGetMaximumAgeGet(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<number>>;
+    public apiPremiumGetMaximumAgeGet(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        let responseType_: 'text' | 'json' | 'blob' = 'json';
+        if (localVarHttpHeaderAcceptSelected) {
+            if (localVarHttpHeaderAcceptSelected.startsWith('text')) {
+                responseType_ = 'text';
+            } else if (this.configuration.isJsonMime(localVarHttpHeaderAcceptSelected)) {
+                responseType_ = 'json';
+            } else {
+                responseType_ = 'blob';
+            }
+        }
+
+        let localVarPath = `/api/Premium/GetMaximumAge`;
+        return this.httpClient.request<number>('get', `${this.configuration.basePath}${localVarPath}`,
+            {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,

@@ -14,7 +14,8 @@ namespace TAL.PremiumCalculator.Business.Abstractions
         /// <param name="ratingFactor">Rating factor for the members occupation</param>
         /// <param name="sumInsured">Sum insured for the member</param>
         /// <param name="dateOfBirth">Date of birth of the member</param>
+        /// <param name="maximumAge">The maximum age that a premium is valid for</param>
         /// <returns>Premium calculation including Death Premium and TPD Premium Monthly</returns>
-        PremiumResponse CalculatePremiumAsync(double ratingFactor, decimal sumInsured, DateTime dateOfBirth);
+        PremiumResponse CalculatePremium(double ratingFactor, decimal sumInsured, DateTime dateOfBirth, int maximumAge);
     }
 }

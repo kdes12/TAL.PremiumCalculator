@@ -9,6 +9,7 @@ using TAL.PremiumCalculator.Business.Objects;
 using TAL.PremiumCalculator.Data;
 using TAL.PremiumCalculator.Data.Abstractions;
 using TAL.PremiumCalculator.Data.Models;
+using ConfigurationManager = TAL.PremiumCalculator.Business.ConfigurationManager;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,10 @@ builder.Services.AddSingleton<IMapper<Occupation, OccupationResponse>, Occupatio
 
 builder.Services.AddScoped<IOccupationRepository, OccupationRepository>();
 builder.Services.AddScoped<IOccupationManager, OccupationManager>();
+
+builder.Services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
+builder.Services.AddScoped<IConfigurationManager, ConfigurationManager>();
+
 builder.Services.AddScoped<IPremiumManager, PremiumManager>();
 
 // add swagger

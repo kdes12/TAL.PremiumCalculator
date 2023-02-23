@@ -16,12 +16,19 @@ namespace TAL.PremiumCalculator.Business
         /// <param name="ratingFactor">Rating factor for the members occupation</param>
         /// <param name="sumInsured">Sum insured for the member</param>
         /// <param name="dateOfBirth">Date of birth of the member</param>
+        /// <param name="maximumAge">The maximum age that a premium is valid for</param>
         /// <returns>Premium calculation including Death Premium and TPD Premium Monthly</returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public PremiumResponse CalculatePremiumAsync(double ratingFactor, decimal sumInsured, DateTime dateOfBirth)
+        public PremiumResponse CalculatePremium(double ratingFactor, decimal sumInsured, DateTime dateOfBirth, int maximumAge)
         {
             // calculate age
             var age = CalculateAge(dateOfBirth, DateTime.UtcNow);
+
+            // if the member age is too high, throw
+            if (age > maximumAge)
+            {
+                throw new InvalidOperationException("Maximum age is 70.");
+            }
 
             // calculate and return premium
             return new PremiumResponse

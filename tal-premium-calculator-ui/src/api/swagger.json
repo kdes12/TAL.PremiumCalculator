@@ -40,7 +40,40 @@
         }
       }
     },
-    "/api/Premium/GetPremium": {
+    "/api/Premium/GetMaximumAge": {
+      "get": {
+        "tags": [
+          "Premium"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProblemDetails"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Premium/CalculatePremium": {
       "get": {
         "tags": [
           "Premium"
@@ -49,6 +82,7 @@
           {
             "name": "OccupationId",
             "in": "query",
+            "required": true,
             "style": "form",
             "schema": {
               "type": "string",
@@ -58,6 +92,7 @@
           {
             "name": "SumInsured",
             "in": "query",
+            "required": true,
             "style": "form",
             "schema": {
               "type": "number",
@@ -67,6 +102,7 @@
           {
             "name": "DateOfBirth",
             "in": "query",
+            "required": true,
             "style": "form",
             "schema": {
               "type": "string",

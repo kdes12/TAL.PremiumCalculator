@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div [hidden]="!maximumAgeLoaded || !occupationsLoaded" class="container my-5">
     <div class="row p-4 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1">Premium Calculator</h1>
@@ -16,7 +16,7 @@
           <input type="date" class="form-control" id="dateOfBirth" 
             [ngModel]="dateOfBirth| date:'yyyy-MM-dd'"  
             (ngModelChange)="dateOfBirth= $event"   >
-          <label [hidden]="dateOfBirthValid" for="dateOfBirth" class="form-label text-danger">Maximum age is 70</label>
+          <label [hidden]="dateOfBirthValid" for="dateOfBirth" class="form-label text-danger">Maximum age is {{maximumAge}}</label>
         </div>
         <br/>
         <div class="lead">

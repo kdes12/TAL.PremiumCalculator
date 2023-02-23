@@ -25,6 +25,11 @@ namespace TAL.PremiumCalculator.Data
         public DbSet<OccupationRating> OccupationRatings { get; set;}
 
         /// <summary>
+        /// Configurations
+        /// </summary>
+        public DbSet<Configuration> Configurations { get; set;}
+
+        /// <summary>
         /// Construct db context
         /// </summary>
         /// <param name="dbContextOptions">Db context options</param>
@@ -40,6 +45,9 @@ namespace TAL.PremiumCalculator.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            // config is keyless
+            modelBuilder.Entity<Configuration>().HasNoKey();
 
             // seed 
             Seed(modelBuilder);
