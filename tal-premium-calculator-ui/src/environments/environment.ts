@@ -1,5 +1,4 @@
-// environment.ts
 export const environment = {
-    production: false,
-    basePath: 'https://localhost:7177',
-  };
+  production: true,
+  basePath: 'https://premium-calculator-api.azurewebsites.net',
+};
