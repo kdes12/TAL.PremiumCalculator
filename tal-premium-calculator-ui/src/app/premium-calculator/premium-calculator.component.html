@@ -8,6 +8,7 @@
         <div class="lead">
           <label for="name" class="form-label">Name</label>
           <input type="text" class="form-control" id="name" [(ngModel)]="name" >
+          <label [hidden]="nameValid" for="name" class="form-label text-danger">Name is required</label>
         </div>
         <br/>
         <div class="lead">
@@ -15,23 +16,28 @@
           <input type="date" class="form-control" id="dateOfBirth" 
             [ngModel]="dateOfBirth| date:'yyyy-MM-dd'"  
             (ngModelChange)="dateOfBirth= $event"   >
+          <label [hidden]="dateOfBirthValid" for="dateOfBirth" class="form-label text-danger">Maximum age is 70</label>
         </div>
         <br/>
         <div class="lead">
           <label for="sumInsured" class="form-label">Sum Insured</label>
           <input type="number" class="form-control" id="sumInsured" [(ngModel)]="sumInsured">
+          <label [hidden]="sumInsuredValid" for="sumInsured" class="form-label text-danger">Sum Insured is required</label>
         </div>
         <br/>
         <div class="lead">
           <label for="occupation" class="form-label">Occupation</label>
           <select class="form-select" id="occupation" (change)="onOccupationChange($event)">
-            <option *ngFor="let occupation of occupations$ | async as list" value={{occupation.id}}>{{occupation.name}}</option>
+            <option *ngFor="let occupation of occupations" value={{occupation.id}}>{{occupation.name}}</option>
           </select>
+          <label [hidden]="occupationIdValid" for="occupation" class="form-label text-danger">Occupation is required</label>
         </div>
-        <br/>
-        <br/>
-        <p class="display-6 text-primary">Death Premium is $1234.56</p>
-        <p class="display-6 text-secondary">TPD Premium Monthly is $1234.56</p>
+        <div [hidden]="!premiumValid" >
+            <br/>
+            <br/>
+            <p class="display-6 text-primary">Death Premium is {{deathPremium | currency}}</p>
+            <p class="display-6 text-secondary">TPD Premium Monthly is {{tpdMonthlyPremium | currency}}</p>
+        </div>
       </div>
     </div>
   </div>
