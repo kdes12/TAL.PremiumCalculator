@@ -5,6 +5,9 @@ using TAL.PremiumCalculator.Business.Objects;
 
 namespace TAL.PremiumCalculator.API.Controllers
 {
+    /// <summary>
+    /// Controller to handle Premium operations
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
@@ -13,12 +16,22 @@ namespace TAL.PremiumCalculator.API.Controllers
         private readonly ILogger<PremiumController> _logger;
         private readonly IPremiumManager _premiumManager;
 
+        /// <summary>
+        /// Constructs Premium controller
+        /// </summary>
+        /// <param name="logger">Logger for errors</param>
+        /// <param name="premiumManager">Business layer for premium calculations</param>
         public PremiumController(ILogger<PremiumController> logger, IPremiumManager premiumManager)
         {
             _logger = logger;
             _premiumManager = premiumManager;
         }
 
+        /// <summary>
+        /// Calculate premium based on given query paramters
+        /// </summary>
+        /// <param name="query">Parameters for premium calculation</param>
+        /// <returns>Premium calculation, including Death Premium and TPD Premium Monthly</returns>
         [HttpGet]
         [Route("[action]")]
         [ProducesResponseType(typeof(PremiumResponse), 200)]
@@ -27,7 +40,10 @@ namespace TAL.PremiumCalculator.API.Controllers
         {
             try
             {
+                // calculate premium
                 PremiumResponse premium = await _premiumManager.GetPremiumAsync(query.OccupationId, query.SumInsured, query.DateOfBirth);
+                
+                // return result
                 return Ok(premium);
             }
             catch (Exception ex)

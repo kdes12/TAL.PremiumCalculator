@@ -7,6 +7,9 @@ using TAL.PremiumCalculator.Data.Abstractions;
 
 namespace TAL.PremiumCalculator.API.Controllers
 {
+    /// <summary>
+    /// Controller to handle Occupation operations
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
@@ -15,12 +18,21 @@ namespace TAL.PremiumCalculator.API.Controllers
         private readonly ILogger<OccupationController> _logger;
         private readonly IOccupationManager _occupationManager;
 
+        /// <summary>
+        /// Construct Occupation controller
+        /// </summary>
+        /// <param name="logger">Logger for errors</param>
+        /// <param name="occupationManager">Business layer for occupation retrieval</param>
         public OccupationController(ILogger<OccupationController> logger, IOccupationManager occupationManager)
         {
             _logger = logger;
             _occupationManager = occupationManager;
         }
 
+        /// <summary>
+        /// Retrieves all available Occupations
+        /// </summary>
+        /// <returns>List of all available Occupations</returns>
         [HttpGet]
         [Route("[action]")]
         [ProducesResponseType(typeof(List<OccupationResponse>), 200)]
@@ -29,7 +41,10 @@ namespace TAL.PremiumCalculator.API.Controllers
         {
             try
             {
+                // get all occupations from occupation manager
                 List<OccupationResponse> occupations = await _occupationManager.GetOccupationsAsync();
+
+                // return result
                 return Ok(occupations);
             }
             catch (Exception ex)

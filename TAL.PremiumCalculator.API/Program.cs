@@ -27,14 +27,17 @@ builder.Services.AddSwaggerGen();
 
 // add db context
 builder.Services.AddDbContext<PremiumCalculatorContext>(
-    options => options.UseSqlServer(builder.Configuration.GetConnectionString(Constants.CONNECTION_STRING)));
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString(Constants.CONNECTION_STRING_KEY)));
 
 // add production CORS policy
 builder.Services.AddCors(options =>
 {
-    string[] allowedOrigins = (builder.Configuration.GetValue<string>("AllowedOrigins") ?? string.Empty).Split(";");
+    // get allowed origins as list of strings
+    string[] allowedOrigins = (builder.Configuration.GetValue<string>(Constants.CORS_ORIGINS_KEY) ?? string.Empty)
+                                .Split(Constants.CORS_ORIGINS_DELIMITER);
 
-    options.AddPolicy(name: "ProductionPolicy",
+    // add origins to CORS policy
+    options.AddPolicy(name: Constants.CORS_POLICY_NAME,
         policy =>
         {
             policy
@@ -65,7 +68,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     // restrict hosts in prod
-    app.UseCors("ProductionPolicy");
+    app.UseCors(Constants.CORS_POLICY_NAME);
 }
 
 app.Run();
