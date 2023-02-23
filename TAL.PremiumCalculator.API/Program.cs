@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using TAL.PremiumCalculator.API;
 using TAL.PremiumCalculator.Business;
 using TAL.PremiumCalculator.Business.Abstractions;
@@ -27,6 +29,21 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PremiumCalculatorContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString(Constants.CONNECTION_STRING)));
 
+// add production CORS policy
+builder.Services.AddCors(options =>
+{
+    string[] allowedOrigins = (builder.Configuration.GetValue<string>("AllowedOrigins") ?? string.Empty).Split(";");
+
+    options.AddPolicy(name: "ProductionPolicy",
+        policy =>
+        {
+            policy
+                .WithOrigins(allowedOrigins)
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
 // enable swagger (for development and prod)
@@ -48,10 +65,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     // restrict hosts in prod
-    app.UseCors(policy => policy
-        .AllowAnyMethod()
-        .AllowAnyHeader()
-        .WithOrigins((builder.Configuration.GetValue<string>("AllowedHosts")?.ToString() ?? string.Empty).Split(";")));
+    app.UseCors("ProductionPolicy");
 }
 
 app.Run();
