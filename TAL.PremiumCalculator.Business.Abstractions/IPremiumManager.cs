@@ -7,14 +7,14 @@ namespace TAL.PremiumCalculator.Business.Abstractions
     /// </summary>
     public interface IPremiumManager
     {
+
         /// <summary>
         /// Calculate premium based on given parameters
         /// </summary>
-        /// <param name="occupationId">Id of the occupation of the member</param>
+        /// <param name="ratingFactor">Rating factor for the members occupation</param>
         /// <param name="sumInsured">Sum insured for the member</param>
         /// <param name="dateOfBirth">Date of birth of the member</param>
         /// <returns>Premium calculation including Death Premium and TPD Premium Monthly</returns>
-        /// <exception cref="InvalidOperationException"></exception>
-        Task<PremiumResponse> GetPremiumAsync(Guid occupationId, decimal sumInsured, DateTime dateOfBirth);
+        PremiumResponse CalculatePremiumAsync(double ratingFactor, decimal sumInsured, DateTime dateOfBirth);
     }
 }

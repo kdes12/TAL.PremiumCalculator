@@ -10,46 +10,28 @@ namespace TAL.PremiumCalculator.Business
     /// </summary>
     public class PremiumManager : IPremiumManager
     {
-        private readonly IOccupationRepository _occupationRepository;
-
-        /// <summary>
-        /// Construct premium manager
-        /// </summary>
-        /// <param name="occupationRepository">Occupation repo, for data retrieval</param>
-        public PremiumManager(IOccupationRepository occupationRepository)
-        {
-            _occupationRepository = occupationRepository;
-        }
-
         /// <summary>
         /// Calculate premium based on given parameters
         /// </summary>
-        /// <param name="occupationId">Id of the occupation of the member</param>
+        /// <param name="ratingFactor">Rating factor for the members occupation</param>
         /// <param name="sumInsured">Sum insured for the member</param>
         /// <param name="dateOfBirth">Date of birth of the member</param>
         /// <returns>Premium calculation including Death Premium and TPD Premium Monthly</returns>
         /// <exception cref="InvalidOperationException"></exception>
-        public async Task<PremiumResponse> GetPremiumAsync(Guid occupationId, decimal sumInsured, DateTime dateOfBirth)
+        public PremiumResponse CalculatePremiumAsync(double ratingFactor, decimal sumInsured, DateTime dateOfBirth)
         {
-            Occupation? occupation = await _occupationRepository.GetOccupationAsync(occupationId);
-            if (occupation != null)
+            // calculate age
+            var age = CalculateAge(dateOfBirth, DateTime.UtcNow);
+
+            // calculate and return premium
+            return new PremiumResponse
             {
-                // calculate age
-                var age = CalculateAge(dateOfBirth, DateTime.UtcNow);
+                // Death Premium = (Sum Insured * Occupation Rating Factor * Age) /1000 * 12
+                DeathPremium = sumInsured * (decimal)ratingFactor * age / 1000 * 12,
 
-                // calculate and return premium
-                return new PremiumResponse
-                {
-                    // Death Premium = (Sum Insured * Occupation Rating Factor * Age) /1000 * 12
-                    DeathPremium = sumInsured * (decimal)occupation.OccupationRating.Factor * age / 1000 * 12,
-
-                    // TPD Premium Monthly = (Sum Insured* Occupation Rating Factor *Age) / 1234
-                    TPDPremiumMonthly = sumInsured * (decimal)occupation.OccupationRating.Factor * age / 1234,
-                };
-            }
-
-            // invalid occupation id was provided, throw
-            throw new InvalidOperationException("Unknown occupation.");
+                // TPD Premium Monthly = (Sum Insured* Occupation Rating Factor *Age) / 1234
+                TPDPremiumMonthly = sumInsured * (decimal)ratingFactor * age / 1234,
+            };
         }
 
         /// <summary>

@@ -15,16 +15,19 @@ namespace TAL.PremiumCalculator.API.Controllers
     {
         private readonly ILogger<PremiumController> _logger;
         private readonly IPremiumManager _premiumManager;
+        private readonly IOccupationManager _occupationManager;
 
         /// <summary>
         /// Constructs Premium controller
         /// </summary>
         /// <param name="logger">Logger for errors</param>
         /// <param name="premiumManager">Business layer for premium calculations</param>
-        public PremiumController(ILogger<PremiumController> logger, IPremiumManager premiumManager)
+        /// <param name="occupationManager">Business layer for occupation manager</param>
+        public PremiumController(ILogger<PremiumController> logger, IPremiumManager premiumManager, IOccupationManager occupationManager)
         {
             _logger = logger;
             _premiumManager = premiumManager;
+            _occupationManager = occupationManager;
         }
 
         /// <summary>
@@ -40,8 +43,11 @@ namespace TAL.PremiumCalculator.API.Controllers
         {
             try
             {
+                // get ratingFactor
+                double ratingFactor = await _occupationManager.GetOccupationRatingFactorAsync(query.OccupationId);
+
                 // calculate premium
-                PremiumResponse premium = await _premiumManager.GetPremiumAsync(query.OccupationId, query.SumInsured, query.DateOfBirth);
+                PremiumResponse premium = _premiumManager.CalculatePremiumAsync(ratingFactor, query.SumInsured, query.DateOfBirth);
                 
                 // return result
                 return Ok(premium);

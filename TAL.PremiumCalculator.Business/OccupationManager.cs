@@ -25,6 +25,24 @@ namespace TAL.PremiumCalculator.Business
         }
 
         /// <summary>
+        /// Get occupation rating factor based on given occupation Id
+        /// </summary>
+        /// <param name="occupationId">Id of the relevant occupation</param>
+        /// <returns>Occupation rating factor</returns>
+        public async Task<double> GetOccupationRatingFactorAsync(Guid occupationId)
+        {
+            Occupation? occupation = await _occupationRepository.GetOccupationAsync(occupationId);
+            if (occupation != null)
+            {
+                // map to response, return result
+                return occupation.OccupationRating.Factor;
+            }
+
+            // invalid occupation id was provided, throw
+            throw new InvalidOperationException("Unknown occupation.");
+        }
+
+        /// <summary>
         /// Get Occupations via repository
         /// </summary>
         /// <returns>List of Occupations (business objects)</returns>
