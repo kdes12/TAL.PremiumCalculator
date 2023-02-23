@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.API", "TAL.PremiumCalculator.API\TAL.PremiumCalculator.API.csproj", "{79277010-CDD8-4D08-9510-8196CAF06C73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAL.PremiumCalculator.API", "TAL.PremiumCalculator.API\TAL.PremiumCalculator.API.csproj", "{79277010-CDD8-4D08-9510-8196CAF06C73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Data", "TAL.PremiumCalculator.Data\TAL.PremiumCalculator.Data.csproj", "{637C7357-3B9A-4338-AB1A-CEA2083C4AB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAL.PremiumCalculator.Data", "TAL.PremiumCalculator.Data\TAL.PremiumCalculator.Data.csproj", "{637C7357-3B9A-4338-AB1A-CEA2083C4AB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Data.Abstractions", "TAL.PremiumCalculator.Data.Abstractions\TAL.PremiumCalculator.Data.Abstractions.csproj", "{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAL.PremiumCalculator.Data.Abstractions", "TAL.PremiumCalculator.Data.Abstractions\TAL.PremiumCalculator.Data.Abstractions.csproj", "{31FA34E8-D8E8-44BD-8A50-17D8F7CFC30F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Data.Models", "TAL.PremiumCalculator.Data.Models\TAL.PremiumCalculator.Data.Models.csproj", "{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAL.PremiumCalculator.Data.Models", "TAL.PremiumCalculator.Data.Models\TAL.PremiumCalculator.Data.Models.csproj", "{EB8AACCF-DCCA-4A6C-A962-82E3EFF7C3EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Business", "TAL.PremiumCalculator.Business\TAL.PremiumCalculator.Business.csproj", "{E1C74DB0-D45E-4A3A-8439-B95BCBC2E2EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAL.PremiumCalculator.Business", "TAL.PremiumCalculator.Business\TAL.PremiumCalculator.Business.csproj", "{E1C74DB0-D45E-4A3A-8439-B95BCBC2E2EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Business.Abstractions", "TAL.PremiumCalculator.Business.Abstractions\TAL.PremiumCalculator.Business.Abstractions.csproj", "{3BD5A182-1A30-4221-BA5D-61AC34E12501}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAL.PremiumCalculator.Business.Abstractions", "TAL.PremiumCalculator.Business.Abstractions\TAL.PremiumCalculator.Business.Abstractions.csproj", "{3BD5A182-1A30-4221-BA5D-61AC34E12501}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Business.Objects", "TAL.PremiumCalculator.Business.Objects\TAL.PremiumCalculator.Business.Objects.csproj", "{DAA37C76-EBE1-4F79-8438-3A016502F2CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAL.PremiumCalculator.Business.Objects", "TAL.PremiumCalculator.Business.Objects\TAL.PremiumCalculator.Business.Objects.csproj", "{DAA37C76-EBE1-4F79-8438-3A016502F2CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Business.Mappers", "TAL.PremiumCalculator.Business.Mappers\TAL.PremiumCalculator.Business.Mappers.csproj", "{294FA830-49FB-4B7E-9298-90700F4177D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAL.PremiumCalculator.Business.Mappers", "TAL.PremiumCalculator.Business.Mappers\TAL.PremiumCalculator.Business.Mappers.csproj", "{294FA830-49FB-4B7E-9298-90700F4177D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAL.PremiumCalculator.Business.Tests", "TAL.PremiumCalculator.Business.Tests\TAL.PremiumCalculator.Business.Tests.csproj", "{88EA407B-A8AE-40E5-B84F-80CB50501C62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{294FA830-49FB-4B7E-9298-90700F4177D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{294FA830-49FB-4B7E-9298-90700F4177D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{294FA830-49FB-4B7E-9298-90700F4177D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88EA407B-A8AE-40E5-B84F-80CB50501C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88EA407B-A8AE-40E5-B84F-80CB50501C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88EA407B-A8AE-40E5-B84F-80CB50501C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88EA407B-A8AE-40E5-B84F-80CB50501C62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

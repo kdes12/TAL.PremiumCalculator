@@ -27,7 +27,7 @@ namespace TAL.PremiumCalculator.Business
             // if the member age is too high, throw
             if (age > maximumAge)
             {
-                throw new InvalidOperationException("Maximum age is 70.");
+                throw new InvalidOperationException($"Maximum age is {maximumAge}.");
             }
 
             // calculate and return premium
