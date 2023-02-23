@@ -1,3 +1,6 @@
+<div [hidden]="maximumAgeLoaded && occupationsLoaded" class="spinner-border text-primary" role="status">
+  <span class="sr-only"></span>
+</div>
 <div [hidden]="!maximumAgeLoaded || !occupationsLoaded" class="container my-5">
     <div class="row p-4 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-12 p-3 p-lg-5 pt-lg-3">
